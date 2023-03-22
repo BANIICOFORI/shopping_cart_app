@@ -10,7 +10,7 @@ const WomensJacketList = () => {
           </View>
           <View>
               <View>
-                  <Image style={styles.Image} source={require("../assets/add_to_cart.jpg")} />
+                  <Image style={styles.Image} source={require("../src/screens/AddToCart")} />
               </View>
           </View>
       </View>

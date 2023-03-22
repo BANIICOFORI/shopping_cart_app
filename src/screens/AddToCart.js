@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 
-const AddToCart = () => {
+const AddToCart = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.SuccessfulContainer}>
@@ -14,10 +14,12 @@ const AddToCart = () => {
         </Text>
       </View>
       <View>
-        <Image style={styles.Image} source={require("../assets/add_to_cart.jpg")} />
+        <Image style={styles.Image} source={require("../screens/img/add_to_cart.jpg")} />
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate("Payment") 
+        }} style={styles.buttonContainer}>
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
 
@@ -34,8 +36,12 @@ const AddToCart = () => {
         <TouchableOpacity style={styles.buttonNext3}>
           <Text style={styles.buttonnextText}>3</Text>
         </TouchableOpacity>
-        <View><Text style={styles.privious1}>Skip</Text></View>
-
+        <TouchableOpacity>
+        <View>
+          <Text style={styles.privious1}>Skip</Text>
+          </View>
+        </TouchableOpacity>
+      
       </View>
 
     </View>

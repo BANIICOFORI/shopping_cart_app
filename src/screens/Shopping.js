@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { MaterialIcons, Feather, Entypo, MaterialCommunityIcons, SimpleLineIcons, EvilIcons } from "@expo/vector-icons";
 
-const Payment = () => {
+const Shopping = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.SuccessfulContainer}>
-        <Text style={styles.SuccessfulText}>PAYMENT SUCCESSFUL</Text>
+        <Text style={styles.SuccessfulText}>ONLINE SHOPPING</Text>
       </View>
       <View>
         <Text style={styles.mainText}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -15,17 +15,16 @@ const Payment = () => {
         </Text>
       </View>
       <View>
-        <Image style={styles.Image} source={require("../assets/successful-purchase-t33.jpg")} />
+        <Image style={styles.Image} source={require("../screens/img/online-shopping-n57.jpg")} />
       </View>
-      <View style={styles.buttonContainer1}>
-        <TouchableOpacity style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>Get Started</Text>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate("AddToCart") 
+        }}style={styles.buttonContainer}>
+          <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
-
       </View>
       <View style={styles.buttonContainerNext}>
-        <View ><Text style={styles.privious}>Previous</Text></View>
-
         <TouchableOpacity style={styles.buttonNext1}>
           <Text style={styles.buttonnextText}>1</Text>
         </TouchableOpacity>
@@ -35,8 +34,9 @@ const Payment = () => {
         <TouchableOpacity style={styles.buttonNext3}>
           <Text style={styles.buttonnextText}>3</Text>
         </TouchableOpacity>
-
-
+          <TouchableOpacity>
+          <View><Text style={styles.privious}>Skip</Text></View>
+          </TouchableOpacity>
       </View>
 
     </View>
@@ -45,11 +45,13 @@ const Payment = () => {
 
 const styles = StyleSheet.create({
   container: {
+    // flexDirection:"column",
     flexDirection: "column",
     borderRadius: 20,
     marginTop: 50,
     backgroundColor: "#fffaf0",
-    marginHorizontal: 18,
+    marginHorizontal: 20,
+
   },
   Image: {
     width: 300,
@@ -63,8 +65,8 @@ const styles = StyleSheet.create({
   SuccessfulContainer: {
     marginTop: 50,
     marginVertical: 5,
-    marginBottom: 5,
-    marginHorizontal: 20,
+    marginBottom: 2,
+    marginHorizontal: 20
   },
   LoginHeader: {
     fontSize: 20,
@@ -72,33 +74,25 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     height: 70,
   },
-  buttonContainer1: {
-    width: 190,
-    height: 60,
-    backgroundColor: "#6a5acd",
-    justifyContent: "center",
-    alignSelf: "center",
-    //alignItems: "center",
-    borderRadius: 30,
-    marginVertical: 20,
-    //marginHorizontal:20
-  },
+
   buttonContainer: {
     width: 190,
     height: 60,
     backgroundColor: "#6a5acd",
     justifyContent: "center",
     // alignItems: "center",
-    alignSelf: "center",
     borderRadius: 30,
-    marginVertical: 5,
-    marginHorizontal: 5
+    marginVertical: 20,
+    alignSelf: "center",
+    // marginHorizontal:50
   },
   buttonText: {
     fontSize: 25,
     color: "white",
     fontWeight: "bold",
-    alignSelf: "center"
+    justifyContent: "center",
+    alignSelf: "center",
+    //marginVertical:20,
   },
   SuccessfulText: {
     fontSize: 26,
@@ -108,12 +102,12 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 16,
     fontWeight: "normal",
-    marginHorizontal: 20,
+    marginHorizontal: 20
 
   },
   mainTextContainer: {
     flex: 1,
-    marginHorizontal: 10,
+    marginHorizontal: 5,
     marginVertical: 5,
   },
   buttonContainerNext: {
@@ -121,9 +115,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     //  flex:1,
     alignItems: "center",
-    // marginTop:40,
-    marginVertical: 40,
-    marginHorizontal: 5
+    marginVertical: 50,
+    marginHorizontal: 20
 
   },
   buttonNext: {
@@ -137,18 +130,18 @@ const styles = StyleSheet.create({
   buttonNext1: {
     width: 20,
     height: 14,
-    backgroundColor: "#a9a9a9",
+    backgroundColor: "#6a5acd",
     borderRadius: 20,
     marginVertical: 5,
-    marginLeft: 70
+    marginLeft: 120
   },
   buttonNext3: {
     width: 25,
     height: 14,
-    backgroundColor: "#6a5acd",
+    backgroundColor: "#a9a9a9",
     borderRadius: 20,
     marginVertical: 5,
-    marginRight: 140
+    marginRight: 80
   },
   buttonnextText: {
     fontSize: 8,
@@ -159,10 +152,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
   privious: {
-    marginLeft: 15,
+    // marginLeft:15,
     fontSize: 18,
-    textAlign: "left"
+    // textAlign:"Right"
   },
 });
 
-export default Payment
+
+export default Shopping
